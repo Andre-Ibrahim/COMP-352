@@ -1,0 +1,94 @@
+##########################################
+		Question 1
+##########################################
+
+input String
+output shortened String
+_______________________________________________
+strOut = ""
+count = 1
+char = first letter of the input
+
+for characters in the input string starting at i=1 
+	if the char is equal to character at the index
+		increment count
+	else
+		temp = current character of the loops index
+		if count equals 1
+			add the letter to strOut
+		else
+			add the letter to strOut and the count digit next to it
+			reset count to 1
+return strOut
+______________________________________________
+
+a)	the time complexity of this alogorithm is O(n) since we have to 
+	go through the string of length n to build the new one
+
+b)	the space complexity of this alogrithm is also O(n) since we are
+	building an new string that depends on the inputed string
+	that string is at max size n if each consecutive char is different or
+	if the string has a pattern of two letters being the same ei. "aabbccdd"
+	since the second character will be substituded by a digit
+
+##########################################
+		Question 2
+##########################################
+
+(i)
+
+input array of integers
+No output print statement in method instead
+__________________________________________________					
+
+smallest = |element 0 - element 1| of the array
+largest = smallest
+Smallest index = 0
+largest index = 0
+
+for element starting at element 1 of the array to the before last element
+	if |element i - element(i+1)| is smaller than the value of smallest
+		set smallest to |element i - element(i + 1)|
+		set Smallest index to the current index
+	if |element i - element(i+1)| is larger than the value of largest
+		set largest to |element i - element(i+1)|
+ 		set largest index to the current index
+
+print	index for Smallest index and Smallest index + 1 as well as there values in the array
+	and cleary state the this gives the smallest difference	
+		
+
+print	index for largest index and largest index + 1 as well as there values in the array
+	and cleary state the this gives the largest difference
+___________________________________________________
+
+(ii) 	I wanted to solve this problem in the fastest way possible. knowing that i would somehow
+	have to check every element a for loop alows for that.
+
+(iii)	the time complexity of this solution is O(n) since we are doing a for loop over the array
+	given the rest is all based on the information that the loop provides.
+
+(iv)	The space complexity of this algorithm is O(1) since all we have is 4 integer values that
+	are updated by the calculations.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
