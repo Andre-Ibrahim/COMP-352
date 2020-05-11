@@ -1,4 +1,4 @@
-##########################################
+﻿##########################################
 		Question 1
 ##########################################
 
@@ -70,6 +70,60 @@ ___________________________________________________
 
 (iv)	The space complexity of this algorithm is O(1) since all we have is 4 integer values that
 	are updated by the calculations.
+
+##########################################
+		Question 3
+##########################################
+
+(a)	for n^15*log(n) + n^9 worst case senario is O((n^15)*log(n))
+	since this is a lower bound and (n^9)*log(n) is smaller than (n^15)*log(n)
+	O((n^9)*log(n)) is false
+___________________________________________
+	answer: false
+
+(b)	since big Θ is where O and Ω meet there is only one possible answer to this problem
+	in this situation the thighests bound for O is O(n^5) and the thighest possible
+	bound for Ω is also Ω(n^5) making it Θ(n^5) meaning that the original statment of
+	Θ(n^3) false
+__________________________________________
+	answer: false
+
+(c) 	since Ω is an upper bound and n! > n^n f(n) = n^n cannot be Ω(n!)
+__________________________________________
+	answer: false
+
+(d)	big O represent the worst case senario which means that for since n^9 > n^7
+	ignoring the constance for a value approching inifinity we can see that O can
+	be n^9 and larger and therefore O(n^9) for f(n) = 0.01n^9 + 800000n^7 is true.
+__________________________________________
+	answer: true
+
+(e)	we can see that the upper bound of this function is n^14 which means that any
+	function contained within n^14 satisfies Ω and therfore Ω(n^13) is true for the
+	given function.
+__________________________________________
+	answer: true
+
+(f)	since n! should be the lower bound for O and 3^n < n! O(3^n) for f(n) = n! is false.
+__________________________________________
+	answer: false
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
