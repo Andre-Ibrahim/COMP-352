@@ -1,8 +1,16 @@
 public class ProgrammingQ{
     public static void main(String[] args) {
-
-        permu("abc", "hhhlajkjgabckkkkcbakkdfjknbbca", 0, 2);// test case from the pdf
         
+        timePermu("abcdefghi", "abcdeasdeasdfedsdfsdcabawerhjkgkhgh");
+        
+    }
+
+    public static void timePermu(String sS,String lS){ // this method calls the permu function for the given call and outputs the time used
+        long startTime = System.currentTimeMillis();
+        permu(sS, lS, 0, sS.length() - 1);
+        long endTime = System.currentTimeMillis();
+        System.out.println("That took " + (endTime - startTime) + " milliseconds");
+
     }
 
     public static void permu(String shortStr, String longStr, int start, int end){
@@ -10,9 +18,12 @@ public class ProgrammingQ{
             System.out.println(shortStr);
 
             for(int i = 0; i < longStr.length() - shortStr.length() + 1; i++){// search with O(n)
-                if (longStr.substring(i, i + shortStr.length()).equals(shortStr))
+                if (longStr.substring(i, i + shortStr.length()).equals(shortStr)){
                     System.out.println("found one match: " + shortStr + " is in " + longStr + " at location " + i);
-
+                    break;
+                }
+                    
+                    
             } 
         }
         else { 
