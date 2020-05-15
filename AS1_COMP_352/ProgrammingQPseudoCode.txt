@@ -1,0 +1,44 @@
+____________________________
+
+	Version 1
+____________________________
+input: String; String; int; int. 
+output: void the algorithm prints to the console the permutation and the match.
+
+Algorithm permu(shortString , longString, start, end)
+
+	if start = end
+		print shortString
+		
+		for(int i <-- 0 to (length of longString - length of shortString + 1))
+			if longString substring from i to (i + length of shortString) = shortString
+				print shortString and longString and i
+				break out of the loop
+	else
+		for (i <-- start to end)
+			shortString <-- swap index (i and start) letters in shortString  
+			permu(shortString, longString, start + 1, end) {recursive call}
+
+____________________________
+
+	Version 2
+____________________________
+
+input: String; String.
+output: void the algorithm prints the match of any permutation of the short string with the long string.
+
+Algorithm permu(shortString, longString)
+	perviousString <-- empty string {used later to check if match occurs at the same permutation}
+	charArray <-- shortString to char Array
+	sort charArray
+	shortString <-- charArray back to String
+	for(int i <-- 0 to (length of longString - length of shortString + 1))
+		OriginalSubstring <-- longString substring from i to i + length of shortString
+		charArray <-- OriginalSubstring to character Array
+		sort charArray
+		sortedSubstring <-- charArray to a String
+		if(sortedSubstring = shortString and previousString != OriginalSubstring)
+			previousSubstring <-- OriginalSubstring
+			print match was found with OriginalSustring  in longString at index i
+		 
+		
