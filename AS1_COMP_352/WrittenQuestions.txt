@@ -10,11 +10,11 @@ count = 1
 char = first letter of the input
 
 for characters in the input string starting at i=1 
-	if the char is equal to character at the index
+	if the char = to character at the index
 		increment count
 	else
-		temp = current character of the loops index
-		if count equals 1
+		temp <-- current character of the loops index
+		if count = 1
 			add the letter to strOut
 		else
 			add the letter to strOut and the count digit next to it
@@ -43,16 +43,16 @@ __________________________________________________
 
 smallest = |element 0 - element 1| of the array
 largest = smallest
-Smallest index = 0
-largest index = 0
+SmallestIndex = 0
+largestIndex = 0
 
-for element starting at element 1 of the array to the before last element
+for i<-- 1 to length of array - 1
 	if |element i - element(i+1)| is smaller than the value of smallest
-		set smallest to |element i - element(i + 1)|
-		set Smallest index to the current index
+		smallest <-- |element i - element(i + 1)|
+		SmallestIndex <-- the current index
 	if |element i - element(i+1)| is larger than the value of largest
-		set largest to |element i - element(i+1)|
- 		set largest index to the current index
+		largest <-- |element i - element(i+1)|
+ 		largest <-- index to the current index
 
 print	index for Smallest index and Smallest index + 1 as well as there values in the array
 	and cleary state the this gives the smallest difference	
@@ -63,7 +63,7 @@ print	index for largest index and largest index + 1 as well as there values in t
 ___________________________________________________
 
 (ii) 	I wanted to solve this problem in the fastest way possible. knowing that i would somehow
-	have to check every element a for loop alows for that.
+	have to check every element in the array, a for loop alows for that.
 
 (iii)	the time complexity of this solution is O(n) since we are doing a for loop over the array
 	given the rest is all based on the information that the loop provides.
