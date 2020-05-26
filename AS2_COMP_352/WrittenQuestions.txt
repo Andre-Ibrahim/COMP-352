@@ -1,0 +1,124 @@
+######################################
+		Question 1
+######################################
+
+a.
+input: None this a non static method that acts on the object stack
+output: max value in stack
+algorithim max()
+	tempStack <== deep copy of current stack
+	tempValue <== pop from tempStack
+	maxValue <== tempValue 		// make sure deap copy or pass by value
+	
+	while tempStack is not empty
+		tempValue <== pop from tempStack
+		if tempValue is larger than maxValue
+			maxValue <== tempValue
+
+b. 	the time compelxity and the space complexity is big O(n) 
+	time O(n) - since we have to check every value in the stack
+	space O(n) - since we have to create a deep copy of the stack
+
+c.	yes there is a possiblity to make all functions with complexity O(1) but we are going have to extend the stack class and add a few features
+
+Class EnhancedStack extends stack
+	maxStack attribute		
+	Stack attribute
+
+	algorithm push(value)			//when you push a value that is larger than the previous top or when the stack is empty is stored into another stack
+		Stack push value		// smaller values than the previous top are not saved anywhere but the stack since they can never be max 
+		if maxStack is empty
+			push value on maxStack
+		if value >= top of max Stack
+			push value on maxStack	
+
+
+	algorthim pop()				// when we pop we have to make sure to discard the value if its in the max stack since it can't be the max value anymore 
+		tempValue <= pop from stack
+		if top of maxStack = tempValue
+			pop from maxStack
+
+
+		retrun tempValue
+	
+	algorthim max()				// return the top of the max stack since it will always be the largest value
+		return top of maxStack
+
+######################################
+		Question 2
+######################################
+
+Case 1
+
+a. 	this algorithm will split the even array into two halves and will store values of the first stack on the left and the second stack on the right
+	since we are prioritizing fairness in space we will set the max of each stack to the middle even if the other is not filled
+class twoStacks
+	evenArray of n length with all elements set to null
+	indexStack1 <= 0
+	indexStack2 <= length of array - 1
+	________________________________________________________
+	algoithm push(stack#,element) //stack# are going to be represented with int 1 or 2, 1 being the left and menaing Stack1 and 2 being the right or stack 2
+		if stack# = 1		
+			if indexStack1 >= length of array/2
+				stack 1 is full
+			else
+				indexStack1 <== element
+				indexStack1 <==	indexStack1 + 1
+		if stack# = 2
+			if indexStack2 =< length of array/2
+				stack 2 is full
+			else
+				indexStack2 <== element
+				indexStack2 <==	indexStack1 - 1
+	_________________________________________________________
+	alogorithm pop(stack#)
+		if stack = 1
+			if stack1 is empty
+				trow exception stack is already empty
+			temp <= element at indexStack1
+			indexStack1 <= indexStack1 - 1
+			return temp
+		if stack = 2
+			if stack2 is empty
+				throw exception stack is already empty
+			temp <= element at indexStack2
+			indexStack2 <= indexStack2 + 1
+			return temp
+_________________________________________________________________
+	algorithm size(stack#)
+		if stack# = 1
+			return indexStack1 		// return the index since the value where we are at the index is null
+		if stack# = 2
+			return length of array - 1 - indexStack2
+_________________________________________________________________	
+	algorithm isFull(stack#)
+		if stack# = 1
+			if(indexStack1 = length of array/2) 
+				return true
+		if stack# = 2
+			if(indexStack2 = length of array/2 - 1)
+				return true
+		return false
+_________________________________________________________________
+	algorithm isEmpty(stack#)
+		if stack# = 1
+			if indexStack1 = 0
+				return true
+		if stack# = 2
+			if indexStack2 = length of array - 1
+				rerturn true
+		return false
+C.	push - O(1) in this method we set the element at the pointed index and we increment or decrement the index depeding on the stack
+	pop  - O(1) in this method we set the pointed element (top) to null and we decrement ir increment the index pointer
+	size - O(1) in this method we can use a simple equation to determine the size using the length of the initial array
+	isFull - O(1) all we need is access to the index of each stack which are stored
+	isEmpty - O(1) all we need is access to the index of each stack which are stored
+	
+	above are the analysis of the time complexity for the space compelxity they are also all O(1) since we are not dynamically alocating memory
+
+
+d. 	In a general sense the big Omega is the same as the big O and in this case it is for all the methods since there is no better case function than constant and
+	therefore all the above methods are Omega(1)
+
+	
+		
