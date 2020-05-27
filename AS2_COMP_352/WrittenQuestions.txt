@@ -1,4 +1,4 @@
-######################################
+﻿######################################
 		Question 1
 ######################################
 
@@ -117,8 +117,135 @@ C.	push - O(1) in this method we set the element at the pointed index and we inc
 	above are the analysis of the time complexity for the space compelxity they are also all O(1) since we are not dynamically alocating memory
 
 
-d. 	In a general sense the big Omega is the same as the big O and in this case it is for all the methods since there is no better case function than constant and
+d. 	In a general sense the big-Omega is the same as the big O and in this case it is for all the methods since there is no better case function than constant and
 	therefore all the above methods are Omega(1)
 
-	
+case 2	**Warning the only modified method in case 2 from cas 1 is the isFull method which is also used in the push method to throw an error since the rest in based on the current index it still works with the implementation**
 		
+a. 	this algorithm will split the even array into two halves and will store values of the first stack on the left and the second stack on the right
+	since we are prioritizing space we will set the limit of the stack relative to the other stack
+class twoStacks
+	evenArray of n length with all elements set to null
+	indexStack1 <= 0
+	indexStack2 <= length of array - 1
+algoithm push(stack#,element) //stack# are going to be represented with int 1 or 2, 1 being the left and menaing Stack1 and 2 being the right or stack 2
+		if stack# = 1		
+			if stack1 isFull		// defined bellow with a time complexity of O(n)
+				throw exception array is full
+			else
+				indexStack1 <== element
+				indexStack1 <==	indexStack1 + 1
+		if stack# = 2
+			if stack2 isFull
+				throw excpetion array is full
+			else
+				indexStack2 <== element
+				indexStack2 <==	indexStack1 - 1
+	_________________________________________________________
+	alogorithm pop(stack#)
+		if stack = 1
+			if stack1 is empty
+				trow exception stack is already empty
+			temp <= element at indexStack1
+			indexStack1 <= indexStack1 - 1
+			return temp
+		if stack = 2
+			if stack2 is empty
+				throw exception stack is already empty
+			temp <= element at indexStack2
+			indexStack2 <= indexStack2 + 1
+			return temp
+_________________________________________________________________
+	algorithm size(stack#)
+		if stack# = 1
+			return indexStack1 		// return the index since the value where we are at the index is null
+		if stack# = 2
+			return length of array - 1 - indexStack2
+_________________________________________________________________	
+	algorithm isFull() 			// doesnt require a stack# since isFull is true if the entire array is full
+		for each element in the array
+			if elment at index = null //since the current index is pointing at the next value to add too the array is full when to indexs are off set by one in the direction applied
+				return false		
+		return true
+_________________________________________________________________
+	algorithm isEmpty(stack#) // no modification since the isEmpty function is relative to the stack and therfore it's top index
+		if stack# = 1
+			if indexStack1 = 0
+				return true
+		if stack# = 2
+			if indexStack2 = length of array - 1
+				rerturn true
+		return false
+
+C.	isFull - O(n) we have to check every element in the array to see if there not null
+	push - O(n) in this method we set the element at the pointed index and we increment or decrement the index depeding on the stack we are using the isFull method
+	pop  - O(1) in this method we set the pointed element (top) to null and we decrement ir increment the index pointer
+	size - O(1) in this method we can use a simple equation to determine the size using the length of the initial array
+	isEmpty - O(1) all we need is access to the index of each stack which are stored
+	
+	above are the analysis of the time complexity for the space compelxity they are also all O(1) since we are not dynamically alocating memory
+
+
+d. 	In a general sense the big-Omega is the same as the big O and in this case it is for all the methods since there is no better case function than constant and
+	therefore all the above methods are Omega(1) except for the isFull and push method that are Omega(1)
+######################################
+		Question 3
+######################################
+
+i) 	since f(n) < g(n) the relation is O(g(n))
+
+ii)	since f(n) > g(n) the relation is Ω(g(n))	(Omega)
+
+iii) 	since f(n) > g(n) the relation is Ω(g(n))	(Omega)
+
+iV)	since f(n) > g(n) the relation is Ω(g(n))	(Omega)
+
+V)	since f(n) < g(n) the relation is O(g(n))	
+
+vi) 	since both function are constants the relation is θ(g(n))	(theta)
+######################################
+		Question 4
+######################################
+
+input array of integers
+output array of integers with no duplicates
+____________________________________________
+
+algorithm removeDuplicates(array)
+
+	Create an empty stack
+	create boolean unique set to true	// used later to tag the current element of the outer for loop as unique or not
+	for element in the array	
+		for element at index of the outer loop to index 0 	// only checking previous elements since these are the ones already pushed to the stack
+			if element at Outer index = element at index of inner loop
+				unique <== false
+				break
+		if unique			// if the unique boolean variable isn't change to false that means the value is unique so we push the element to the stack
+			push element to stack
+		unique <== true			// reseting the unique variable to true before the next itteration of the for loop
+
+
+	create newArray that has the size of the stack
+
+	for last index of the array to 0
+		array at index <= pop from stack
+	return new array
+
+a.	using the stack it is easier to organise the integer to keep the order
+	I also needed the stack since i didn't know to size of the generated array
+
+b.	this algorithm is O(n^2) since there is nested for loops that both depend on the number of elements in the array
+
+c.	same thing for the Ω(n^2) however if we look at an array that has all the same intgers example [3,3 ,3, 3] it would run in n since all it has to do is check for the element on its left before breaking out of the loop
+
+d. 	the space compelxity is O(n) since the worst case senario is that the list already has no duplicates and in this case it has to create a new array with n number of elements	
+	
+				
+
+
+
+
+
+
+
+
